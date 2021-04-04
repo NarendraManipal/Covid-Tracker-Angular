@@ -1,6 +1,48 @@
 <div class="jumbotron text-center">
-    <h1 class="display-4">Covid Tracker</h1>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia sit sequi optio laboriosam quam consequatur quo, necessitatibus sed. Reiciendis maiores eius neque enim et soluta possimus rerum ipsa harum blanditiis.</p>
-    <hr class="my-4">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum optio veritatis molestiae ipsum esse eum laboriosam corrupti quisquam, labore doloremque laudantium at sit explicabo consectetur accusantium! Ipsam voluptatum dolor porro?</p>
+  <h1 class="display-4">Covid Tracker</h1>
+  <hr>
+
+  <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'
+    [totalActive]='totalActive'></app-dashboard-card>
+
+</div>
+
+<div class="ui form">
+  <div class="inline fields">
+    <label for="fruit">Select Case Type:</label>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" value="c" name="casetype" #c (click)='updateChart(c)' checked="" tabindex="0" class="hidden"
+          id="c">
+        <label for="c">Confirmed</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" value="d" name="casetype" #d (click)='updateChart(d)' tabindex="0" class="hidden" id="d">
+        <label for="d">Deaths</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" value="r" name="casetype" #r (click)='updateChart(r)' tabindex="0" class="hidden" id="r">
+        <label for="r">Recovered</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" value="a" name="casetype" #a (click)='updateChart(a)' tabindex="0" class="hidden" id="a">
+        <label for="a">Active</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <google-chart [data]="columnChart"></google-chart>
+  </div>
+  <div class="col">
+    <google-chart [data]="pieChart"></google-chart>
+  </div>
 </div>
