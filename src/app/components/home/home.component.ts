@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   totalConfirmed = 0;
   totalActive = 0;
   totalDeaths = 0;
+
   totalRecovered = 0;
   globalData: GlobalDataSummary[];
   pieChart: GoogleChartInterface = {
@@ -32,23 +33,31 @@ export class HomeComponent implements OnInit {
       let values: number;
 
       if (casetype == 'c') {
-        if (cs.confirmed > 2000) { values = cs.confirmed; }
+        if (cs.confirmed > 2000) {
+          values = cs.confirmed;
+        }
       }
 
       if (casetype == 'a') {
-        if (cs.active > 2000) { values = cs.active; }
+        if (cs.active > 2000) {
+          values = cs.active;
+        }
       }
 
       if (casetype == 'd') {
-        if (cs.deaths > 2000) { values = cs.deaths; }
+        if (cs.deaths > 2000) {
+          values = cs.deaths;
+        }
       }
 
       if (casetype == 'r') {
-        if (cs.recovery > 2000) { values = cs.recovery; }
+        if (cs.recovery > 2000) {
+          values = cs.recovery;
+        }
       }
 
       dataTable.push([cs.country, values]);
-    });
+    })
 
     this.pieChart = {
       chartType: 'PieChart',
@@ -82,7 +91,7 @@ export class HomeComponent implements OnInit {
                 this.totalDeaths += cs.deaths;
                 this.totalRecovered += cs.recovery;
               }
-            })
+            });
             this.initChart('c');
           })
         }
