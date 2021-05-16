@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
   globalData: GlobalDataSummary[];
   pieChart: GoogleChartInterface = {
     chartType: 'PieChart'
-  };
+  }
   columnChart: GoogleChartInterface = {
     chartType: 'ColumnChart'
-  };
+  }
 
   constructor(private dataService: DataServiceService) { }
 
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
       options: {
         height: 500
       },
-    };
+    }
     this.columnChart = {
       chartType: 'ColumnChart',
       dataTable: dataTable,
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
       options: {
         height: 500
       },
-    };
+    }
   }
 
   ngOnInit(): void {
@@ -91,11 +91,11 @@ export class HomeComponent implements OnInit {
                 this.totalDeaths += cs.deaths;
                 this.totalRecovered += cs.recovery;
               }
-            });
+            })
             this.initChart('c');
           })
         }
-      );
+      )
   }
 
   updateChart(input: HTMLInputElement) {
